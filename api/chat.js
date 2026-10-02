@@ -56,11 +56,11 @@ Do not claim to be a human.`
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("Gemini error:", data);
-      return res.status(502).json({
-        error: data?.error?.message || "Gemini API error"
-      });
-    }
+  console.error("Gemini error:", data);
+  return res.status(502).json({
+    error: data?.error?.message || "Gemini API error"
+  });
+}
 
     const reply =
       data?.candidates?.[0]?.content?.parts
