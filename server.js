@@ -1,7 +1,7 @@
 // Run: ANTHROPIC_API_KEY=... ADMIN_KEY=... node server.js
 const http = require('http'), fs = require('fs'), path = require('path');
 try { fs.readFileSync(path.join(__dirname, '.env'), 'utf8').split('\n').forEach(l => { const m = l.match(/^\s*([A-Z_]+)\s*=\s*(.*)\s*$/); if (m && !process.env[m[1]]) process.env[m[1]] = m[2]; }); } catch {}
-const GKEY = process.env.GEMINI_API_KEY, GMODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
+const GKEY = process.env.GEMINI_API_KEY, GMODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 const KEY = process.env.ANTHROPIC_API_KEY, ADMIN = process.env.ADMIN_KEY || 'change-me';
 const PORT = process.env.PORT || 3000, MODEL = process.env.MODEL || 'claude-sonnet-5-5';
 const BIZ = process.env.BUSINESS_NAME || 'InternetTVSolutionsUSA';
