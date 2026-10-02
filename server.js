@@ -6,8 +6,7 @@ const KEY = process.env.ANTHROPIC_API_KEY, ADMIN = process.env.ADMIN_KEY || 'cha
 const PORT = process.env.PORT || 3000, MODEL = process.env.MODEL || 'claude-sonnet-5-5';
 const BIZ = process.env.BUSINESS_NAME || 'InternetTVSolutionsUSA';
 const DATA = process.env.DATA_DIR || __dirname; try { fs.mkdirSync(DATA, { recursive: true }); } catch {}
-const LOG = path.join(DATA, 'conversations.jsonl'), LEADS = path.join(DATA, 'leads.jsonl');
-
+const append = (f, o) => fs.appendFileSync(f, JSON.stringify(o) + '\n');
 const SYSTEM = `You are the website assistant for ${BIZ}, an authorized DIRECTV dealer that also helps customers find home internet service.
 Goals: answer questions about DIRECTV (DIRECTV via satellite and DIRECTV STREAM) and internet/TV service in a friendly, short, plain way, then get interested customers to leave their details so a sales agent can call them.
 Rules:
